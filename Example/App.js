@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import TabBar from "fluidbottomnavigation-rn";
+import TabBar from "./src/TabBar";
 
 export default class App extends Component {
   render() {
@@ -10,7 +10,8 @@ export default class App extends Component {
       <View style={styles.container}>
         <View />
         <TabBar
-          onPress={tabIndex => {
+          initTab={0}
+          onPress={(tabIndex) => {
             // eslint-disable-next-line no-console
             console.log("render component with index: ", tabIndex);
           }}
@@ -19,7 +20,7 @@ export default class App extends Component {
             { title: "Requests", icon: require("./assets/requests.png") },
             { title: "Events", icon: require("./assets/events.png") },
             { title: "Members", icon: require("./assets/members.png") },
-            { title: "Account", icon: require("./assets/account.png") }
+            { title: "Account", icon: require("./assets/account.png") },
           ]}
         />
       </View>
@@ -32,6 +33,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#4C53DD"
-  }
+    backgroundColor: "#4C53DD",
+  },
 });
